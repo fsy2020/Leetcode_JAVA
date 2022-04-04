@@ -1,4 +1,7 @@
 package leetcode189_RotateArray;
+
+//数组拷贝的方法：
+//System.arraycopy(num1,0,num2,0,n)
 /*
 示例 1:
 
@@ -19,15 +22,22 @@ package leetcode189_RotateArray;
  */
 
 
+import java.util.Arrays;
+
 public class rotate {
     public static void main(String[] args) {
         int[] nums = {1,2,3,4,5,6,7};
+        rotate(nums,3);
+
 
     }
 
     public static void rotate(int[] nums,int k){
-        int left = 0;
-        int right = nums.length-1;
-
+        int n = nums.length;
+        int[] res = new int[n];
+        for(int i =0;i<n;i++){
+            res[(i+k)%n] = nums[i];
+        }
+        System.arraycopy(res,0,nums,0,n);
     }
 }
