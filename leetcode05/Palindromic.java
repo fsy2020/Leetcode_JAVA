@@ -1,5 +1,5 @@
 package leetcode05;
-
+//asdf
 public class Palindromic {
 
 	public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class Palindromic {
 	public static int isPalindromic(String s,int l,int r) {
 
 		while(l>=0 && r<s.length()) {
-			if(s.charAt(l) == s.charAt(r)) {  //这样就可以不用写在for循环中
+			if(s.charAt(l) == s.charAt(r)) {
 				l--;
 				r++;
 			}
