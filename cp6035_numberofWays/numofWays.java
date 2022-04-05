@@ -5,6 +5,6 @@ public class numofWays {
 
     }
     public static int numberOfWays(String s){
-
+    return 0;
     }
 }
