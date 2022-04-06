@@ -1,7 +1,6 @@
 package revision;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 // “12：34：43”转换成秒
 public class time2num {
@@ -11,6 +10,22 @@ public class time2num {
         System.out.println(i);
 
         Map<Integer,Integer> map = new HashMap<>();
+
+        //数组转List.int类型不用直接转化为List
+        //List转数组。
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        Integer[] integers = new Integer[list.size()];
+        list.toArray(integers);
+        System.out.println(integers);
+
+        Integer[] nums = {1,2,4,5,6};
+        String[] nums2 = {"a","b","v"};
+        List<Integer> ints = new ArrayList<>(Arrays.asList(nums));
+        List<String> string = Arrays.asList(nums2);
+        System.out.println(ints);
+
 
         //哈希表存数字并计数。
         int have = 0;
