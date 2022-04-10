@@ -1,37 +1,59 @@
 package WeeklyCompetition228.cp6037;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.FilterOutputStream;
+import java.util.*;
 
 public class largestInteger {
     public static void main(String[] args) {
-        largestInteger(123456);
+        String s = "1234";
+        int i = largestInteger2(123456);
+        System.out.println(i);
     }
+
+    //数字分割，转换成char[]数组然后
     public static int largestInteger(int num){
-        int res = 0;
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
-        int k1 = num,k2=num;
-        while(k1 >10){
-            list1.add(k1%10);
-            k1 = k1 /100;
+        String s = String.valueOf(num);
+        char[] arr = s.toCharArray();
+
+        for (int i = 0; i < arr.length; i++) {
+            char n = arr[i];
+            for (int j = i + 1; j < arr.length; j++) {
+                if ((n - '0') % 2 == 1 && (arr[j] - '0') % 2 == 1 && arr[j] - '0' > n - '0') {
+                    arr[i] = arr[j];
+                    arr[j] = n;
+                    n = arr[i];
+                } else if ((n - '0') % 2 == 0 && (arr[j] - '0') % 2 == 0 && arr[j] - '0' > n - '0') {
+                    arr[i] = arr[j];
+                    arr[j] = n;
+                    n = arr[i];
+                }
+            }
         }
-        list1.add(k1);
-        k2 = k2/10;
-        while(k2 >10){
-            list2.add(k2%10);
-            k2 = k2 /100;
+        return Integer.parseInt(String.copyValueOf(arr));
+    }
+    public static int largestInteger2(int num){
+        String s = String.valueOf(num);
+        int n = s.length();
+        Queue<Integer> even = new PriorityQueue<>((a, b) -> b - a);
+        Queue<Integer> odd = new PriorityQueue<>((a, b) -> b - a);
+        boolean[] isEven = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            int k = s.charAt(i) - '0';
+            if (k % 2 == 0) {
+                isEven[i] = true;
+                even.offer(k);
+            } else {
+                odd.offer(k);
+            }
         }
-        list2.add(k2);
-        Collections.sort(list1);
-        Collections.sort(list2);
-        for(int i=0;i<list1.size();i++){
-            res +=Math.pow(10,i)*list1.get(i);
+
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            res.append(isEven[i] ? even.poll() : odd.poll());
         }
-        System.out.println(list1);
-        System.out.println(list2);
-        System.out.println(res);
-        return 0;
+
+        return Integer.parseInt(res.toString());
+
+
     }
 }
