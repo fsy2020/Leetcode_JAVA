@@ -8,17 +8,7 @@ public class checkInclusion {
     }
 
     public static boolean checkInclusion2(String s1, String s2){
-        HashMap<Character,Integer> map1 = new HashMap<>();
-        HashMap<Character,Integer> map2 = new HashMap<>();
-        int len1 = s1.length(), len2 = s2.length();
-        for(int i = 0;i<len1;i++){
-            map1.put(s1.charAt(i),i);
-        }
-
-        for(int i = 0;i<len2;i++){
-            if(map2.containsKey())
-            map2.put(s2.charAt(i),i);
-        }
+        return false;
     }
 
     public static boolean checkInclusion1(String s1, String s2) {

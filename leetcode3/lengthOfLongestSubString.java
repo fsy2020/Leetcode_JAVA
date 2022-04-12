@@ -8,25 +8,25 @@ public class lengthOfLongestSubString {
 
     public static void main(String[] args) {
         String s = "pwwkew";
-        int i = lengthOfLongestSubstring2(s);
+        int i = lengthOfLongestSubstring(s);
         System.out.println(i);
     }
 
     public static int lengthOfLongestSubstring(String s){
-        int sum =0;
+        int res = 0;
         char[] c =s.toCharArray();
         for(int i=0;i<c.length;i++){
             Set<Character> set = new HashSet<>();
-            int maxlen = 0;
+            int sum =0;
             int j = i;
-            while(j<c.length && !set.contains(c[j])) {
-                    set.add(c[j]);
-                    maxlen++;
-                    j++;
-                }
-            sum = Math.max(maxlen,sum);
+            while(j<c.length && !set.contains(c[j])){
+                set.add(c[j]);
+                sum++;
+                j++;
+            }
+            res = Math.max(res,sum);
         }
-        return sum;
+        return res;
     }
 
     public static int lengthOfLongestSubstring2(String s){
