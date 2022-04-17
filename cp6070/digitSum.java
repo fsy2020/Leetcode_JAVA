@@ -13,5 +13,6 @@ public class digitSum {
             int digit = c[i] - '0';
 
         }
+        return s;
     }
 }
