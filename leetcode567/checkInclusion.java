@@ -4,7 +4,11 @@ import java.util.HashMap;
 
 public class checkInclusion {
     public static void main(String[] args) {
-
+        String s1 = "eidbaooo";
+        String s2 = "ab";
+        String s3 = new StringBuilder(s1).reverse().toString();
+        boolean contains = s3.contains(s2);
+        System.out.println(contains );
     }
 
     public static boolean checkInclusion2(String s1, String s2){
@@ -35,4 +39,6 @@ public class checkInclusion {
         }
         return map;
     }
+
+
 }

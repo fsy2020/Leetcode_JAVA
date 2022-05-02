@@ -4,6 +4,7 @@ public class removeDigit {
     public static void main(String[] args) {
         String s = removeDigit("1231", '1');
         System.out.println(s);
+
     }
     public static String removeDigit(String number, char digit) {
         char[] c = number.toCharArray();
